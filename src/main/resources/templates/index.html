@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Маршруты</title>
+</head>
+
+<head th:insert="blocks/head::head"></head>
+
+<body>
+
+<nav class="navbar navbar-dark navbar-expand-md sticky-top navbar-shrink py-3" id="mainNav"
+     th:insert="blocks/nav :: nav">
+</nav>
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-4 mb-lg-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Маршруты</h2>
+            </div>
+        </div>
+        <div th:each="route : ${routes}" class="row mx-auto mb-3">
+            <div class="col">
+                <a th:text="${route.begin} + ' - ' + ${route.end}" class="btn btn-light text-start shadow d-block w-100"
+                   role="button" th:href="'/route/' + ${route.id}"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:insert="blocks/footer :: footer" class="bg-dark"></footer>
+
+</body>
+
+</html>
